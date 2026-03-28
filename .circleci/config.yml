@@ -14,9 +14,10 @@ jobs:
       - run:
           name: Run API Tests with HTML Report
           command: |
-            newman run AmpolTest.postman_collection.json \
-            -e WeatherAPI.postman_environment.json \
-            -r html --reporter-html-export report.html
+           newman run AmpolTest.postman_collection.json \
+          -e WeatherAPI.postman_environment.json \
+          --env-var api_key=$API_KEY \
+          -r html --reporter-html-export report.html
 
       - store_artifacts:
           path: report.html
