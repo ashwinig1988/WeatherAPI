@@ -49,7 +49,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://api.weatherapi.com/v1/current.json?key=daafc43561bc47669a2234848262703&q=Sydney&aqi=no&current_temp_c",
+          "raw": "https://api.weatherapi.com/v1/current.json?key={{api_key}}&q=Sydney&aqi=no&current_temp_c",
           "protocol": "https",
           "host": [
             "api",
