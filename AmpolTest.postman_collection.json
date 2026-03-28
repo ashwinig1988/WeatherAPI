@@ -63,7 +63,7 @@
           "query": [
             {
               "key": "key",
-              "value": "daafc43561bc47669a2234848262703"
+              "value":"{{api_key}}"
             },
             {
               "key": "q",
