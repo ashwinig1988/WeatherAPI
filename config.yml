@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run API Tests
           command: |
-            newman run tests/AmpolTest.postman_collection.json \
+            newman run AmpolTest.postman_collection.json \
             -e tests/WeatherAPI.postman_environment.json
 
 workflows:
