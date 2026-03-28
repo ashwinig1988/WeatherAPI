@@ -13,7 +13,7 @@ jobs:
 
       - run:
           name: Run API Tests
-          command: newman run tests/api-tests.json
+          command: newman run tests/AmpolTest.postman_collection.json
 
 workflows:
   version: 2
