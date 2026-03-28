@@ -18,7 +18,6 @@ jobs:
             -e WeatherAPI.postman_environment.json
 
 workflows:
-  version: 2
   test-workflow:
     jobs:
       - test
