@@ -1,0 +1,87 @@
+{
+  "info": {
+    "_postman_id": "2d78e96a-8d38-4c73-913a-e8d235576be2",
+    "name": "AmpolTest",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16099615",
+    "_collection_link": "https://go.postman.co/collection/16099615-2d78e96a-8d38-4c73-913a-e8d235576be2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "SydneyWeatherAPI",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// store api response in json format \r",
+              "let response=pm.response.json();\r",
+              "\r",
+              "// extract the temperature in celsius \r",
+              "let tempCensius=response.current.temp_c;\r",
+              "\r",
+              "// Store in environment variable\r",
+              "pm.environment.set(\"current_temp_c\", tempCensius);\r",
+              "\r",
+              "// extract the airquality\r",
+              "let airQuality=response.current.air_quality;\r",
+              "\r",
+              "// assertions\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "})\r",
+              "\r",
+              "pm.test(\"Temperature in celsius is present\", function () {\r",
+              "    pm.expect(tempCensius).to.not.be.undefined;\r",
+              "})\r",
+              "// adding assertion for airquality to make sure airquality is not available in json as we are passing aqi=no for env\r",
+              "pm.test(\"AirQuality is not present\", function () {\r",
+              "    pm.expect(airQuality).to.be.undefined;\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.weatherapi.com/v1/current.json?key=daafc43561bc47669a2234848262703&q=Sydney&aqi=no&current_temp_c",
+          "protocol": "https",
+          "host": [
+            "api",
+            "weatherapi",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "current.json"
+          ],
+          "query": [
+            {
+              "key": "key",
+              "value": "daafc43561bc47669a2234848262703"
+            },
+            {
+              "key": "q",
+              "value": "Sydney"
+            },
+            {
+              "key": "aqi",
+              "value": "no"
+            },
+            {
+              "key": "current_temp_c",
+              "value": null,
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
